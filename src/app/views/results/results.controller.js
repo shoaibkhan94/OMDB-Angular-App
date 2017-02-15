@@ -1,9 +1,12 @@
+/**
+ * Created by shoaibk on 15/2/17.
+ */
 'use strict';
 
 /**
  * @ngdoc controller
  *
- * @name MainCtrl
+ * @name ResultsCtrl
  *
  * @description
  * Controller for omdb
@@ -12,23 +15,25 @@
 
   angular
     .module('omdb')
-    .controller('MainCtrl', MainCtrl);
+    .controller('ResultsCtrl', ResultsCtrl);
 
-  MainCtrl.$inject = ["$state", "MainService"]
+  ResultsCtrl.$inject = ["MainService", "SearchResults"]
 
-  function MainCtrl($state, MainService) {
+  function ResultsCtrl(MainService, SearchResults) {
     var vm = this;
+    vm.results = null;
+    console.log(SearchResults);
+    vm.results = SearchResults.data;
     vm.search = "";
     vm.response = null;
     vm.searchMovies = function () {
       console.log("test",vm.search);
-      $state.go("main.results",{search : vm.search});
-      /*MainService.searchMovies(vm.search, function success(response) {
+      MainService.searchMovies(vm.search, function success(response) {
         console.log(response);
         vm.response = response;
       }, function error(response) {
         console.log(response);
-      });*/
+      });
     }
   }
 

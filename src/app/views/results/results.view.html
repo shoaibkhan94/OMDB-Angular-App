@@ -1,0 +1,10 @@
+<div class="container">
+  <ul class="list-unstyled">
+    <li ng-repeat="movie in ResultsCtrl.results.Search">
+      <div class="row"><a ui-sref="main.result({id:'{{movie.imdbID}}'})">Click me</a>
+      <div class="col-md-6"><img  style="float: right" class="img-responsive" src="{{movie.Poster}}" alt="No Poster Found" onerror="this.src='../../assets/img_placeholder.gif';this.style='width:300px;float:right'">
+      </div><div class="col-md-6"><p>Name : <b>{{movie.Title}}</b></p>
+      <p>Release year : <b>{{movie.Year}}</b></p></div></div><br>
+    </li>
+  </ul>
+</div>

@@ -24,8 +24,8 @@
     <!-- endbuild -->
   </head>
 
-  <body class="browsehappy">
-    <div ui-view></div>
+  <body class="browsehappy" ng-cloak>
+    <div ui-view ng-cloak></div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <!--<script>-->
@@ -61,6 +61,9 @@
     <script src="app.js"></script>
 
     <!-- injector:js -->
+    <script src="app/services/HTTPFactory.js"></script>
+    <script src="app/services/MainDataService.js"></script>
+    <script src="app/services/MainService.js"></script>
     <script src="app/views/application/application.controller.js"></script>
     <script src="app/views/home/home.controller.js"></script>
     <script src="app/views/home/home.route.js"></script>
@@ -68,6 +71,9 @@
     <script src="app/views/main/main.route.js"></script>
     <script src="app/views/about/about.route.js"></script>
     <script src="app/views/about/about.controller.js"></script>
+    <script src="app/views/results/results.controller.js"></script>
+    <script src="app/views/results/result.controller.js"></script>
+    <script src="app/views/results/results.route.js"></script>
     <!-- endinjector -->
 
     <!-- endbuild -->
