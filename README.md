@@ -7,32 +7,13 @@ Install [NodeJs](https://nodejs.org/)
 
 Install Bower ```npm install -g bower```
 
-To start the development server
+To contribute or use : 
 
-```
-npm start
-```
+1. ```git clone https://github.com/shoaibkhan94/OMDB-Angular-App.git```.
 
-To run unit tests
+2. Run ```cd src``` and then ```bower install --save-dep```.
 
-```
-npm test
-```
+3. Run ```npm install -g http-server```.
 
-To build app for deployment
+4. In src folder Run ```http-server```.
 
-```
-npm run build
-```
-
-To build app for deployment with tests and docs
-
-```
-npm run build
-```
-
-If you are using the [JSDoc](http://usejsdoc.org/) style of comments (which you should!!!) you can generate your documentation with the following command. Documentation can be found under `docs/client/` (Hooray  for automated documentation!)
-
-```
-npm run docs
-```
