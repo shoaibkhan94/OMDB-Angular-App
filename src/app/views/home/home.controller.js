@@ -23,6 +23,9 @@
     vm.searchMovies = function () {
       $state.go("main.results", {search: vm.search});
     }
+    var init = function () {
+      vm.loader = false;
+    }
     $rootScope.$on('$stateChangeStart', stateChangeStart); // Listen for state change
 
     /**
@@ -36,6 +39,8 @@
     function stateChangeStart(event, newState) {
       vm.loader = true;
     }
+
+    init();
   }
 
 })();

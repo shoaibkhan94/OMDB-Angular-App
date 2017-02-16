@@ -36,6 +36,7 @@
       return arr;
     }
     vm.otherPages = function (pageNo) {
+      vm.loader = true;
       var defer = $q.defer();
       $q.when(MainDataService.otherPages($stateParams.search, pageNo)).then(function (data) {
         defer.resolve(data);
@@ -45,6 +46,7 @@
           $state.go("main.home")
         }
         else {
+          vm.loader = false;
           $scope.current_page = pageNo;
           vm.results = data.data;
           console.log(data.data);

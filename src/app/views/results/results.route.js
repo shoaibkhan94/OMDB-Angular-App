@@ -24,7 +24,7 @@
                 defer.resolve(data);
                 if (data.data.Response === "False") {
                   alert(data.data.Error);
-                  $state.go("main.home")
+                  $state.go("main.home", {}, {reload: true});
                 }
               });
               return defer.promise;
