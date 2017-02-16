@@ -9,7 +9,7 @@
  * @name ResultsCtrl
  *
  * @description
- * Controller for omdb
+ * Controller for Showing search results
  */
 (function() {
 
@@ -17,23 +17,27 @@
     .module('omdb')
     .controller('ResultsCtrl', ResultsCtrl);
 
-  ResultsCtrl.$inject = ["MainService", "SearchResults"]
+  ResultsCtrl.$inject = ["$rootScope", "SearchResults"]
 
-  function ResultsCtrl(MainService, SearchResults) {
+  function ResultsCtrl($rootScope, SearchResults) {
     var vm = this;
     vm.results = null;
     console.log(SearchResults);
     vm.results = SearchResults.data;
-    vm.search = "";
-    vm.response = null;
-    vm.searchMovies = function () {
-      console.log("test",vm.search);
-      MainService.searchMovies(vm.search, function success(response) {
-        console.log(response);
-        vm.response = response;
-      }, function error(response) {
-        console.log(response);
-      });
+    vm.loader = false;
+
+    $rootScope.$on('$stateChangeStart', stateChangeStart); // Listen for state change
+
+    /**
+     * @name stateChangeSuccess
+     *
+     * @memberof AppCtrl
+     *
+     * @param {Object} event - the event object
+     * @param {Object} newState - the new state object
+     */
+    function stateChangeStart(event, newState) {
+      vm.loader = true;
     }
   }
 

@@ -17,10 +17,9 @@
     .factory('HTTPFactory', HTTPFactory);
 
 
-  HTTPFactory.$inject = ["$http", "$window"];
-  function HTTPFactory($http, $window) {
+  HTTPFactory.$inject = ["$http"];
+  function HTTPFactory($http) {
     var host = 'http://www.omdbapi.com/?';
-    var storage = $window.localStorage;
     return {
       call : call,
       getHostURL : getHostURL
@@ -34,9 +33,6 @@
      * server
      */
     function call(config) {
-      /*if(userPersistenceService.getCookieData("auth_token")){
-       $http.defaults.headers.common['api_token'] = "Bearer "+userPersistenceService.getCookieData('auth_token');
-       }*/
       config.url = host+config.url;
       return $http(config);
     }

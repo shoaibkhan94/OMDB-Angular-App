@@ -2,7 +2,6 @@
 
 /**
  * @module omdb
- *
  * @description
  * Main module of the application.
  */

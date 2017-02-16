@@ -1,10 +1,26 @@
-<div class="container">
+<div class="container" ng-if="ResultsCtrl.loader == false">
   <ul class="list-unstyled">
     <li ng-repeat="movie in ResultsCtrl.results.Search">
-      <div class="row"><a ui-sref="main.result({id:'{{movie.imdbID}}'})">Click me</a>
-      <div class="col-md-6"><img  style="float: right" class="img-responsive" src="{{movie.Poster}}" alt="No Poster Found" onerror="this.src='../../assets/img_placeholder.gif';this.style='width:300px;float:right'">
-      </div><div class="col-md-6"><p>Name : <b>{{movie.Title}}</b></p>
-      <p>Release year : <b>{{movie.Year}}</b></p></div></div><br>
+      <div class="row"><a style="text-decoration: none;color: white" ui-sref="main.result({id:'{{movie.imdbID}}'})">
+        <div class="col-md-6"><img style="float: right" class="img-responsive" src="{{movie.Poster}}"
+                                   alt="No Poster Found"
+                                   onerror="this.src='../../assets/img_placeholder.gif';this.style='width:300px;float:right'">
+        </div>
+        <div class="col-md-6">
+          <div class="custom-text"><p>Name : <b>{{movie.Title}}</b></p>
+            <p>Release year : <b>{{movie.Year}}</b></p></div>
+        </div>
+      </a></div>
+      <br>
     </li>
   </ul>
+</div>
+<div class="container" ng-if="ResultsCtrl.loader">
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4 white-center">
+      <p style="text-align: center">Loading... Please be patient</p>
+      <img class="img-responsive" src="../../../assets/loading.gif">
+    </div>
+    <div class="col-md-4"></div>
+  </div>
 </div>

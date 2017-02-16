@@ -17,11 +17,15 @@
           controllerAs: 'ResultsCtrl',
           title       : 'Search Results',
           resolve     : {
-            "SearchResults": ["$q", "$stateParams", "MainDataService", function($q, $stateParams, MainDataService) {
+            "SearchResults": ["$q", "$state", "$stateParams", "MainDataService", function($q, $state, $stateParams, MainDataService) {
               var defer = $q.defer();
               console.log("test 2",$stateParams.search);
-              $q.when(MainDataService.register($stateParams.search)).then(function(data) {
+              $q.when(MainDataService.search($stateParams.search)).then(function(data) {
                 defer.resolve(data);
+                if(data.data.Response === "False"){
+                  alert(data.data.Error);
+                  $state.go("main.home")
+                }
               });
               return defer.promise;
             }]
@@ -35,11 +39,15 @@
         controllerAs: 'ResultCtrl',
         title       : 'Movie',
         resolve     : {
-          "MovieResult": ["$q", "$stateParams", "MainDataService", function($q, $stateParams, MainDataService) {
+          "MovieResult": ["$q", "$state", "$stateParams", "MainDataService", function($q, $state, $stateParams, MainDataService) {
             var defer = $q.defer();
             console.log("test 3",$stateParams.id);
             $q.when(MainDataService.movieById($stateParams.id)).then(function(data) {
               defer.resolve(data);
+              if(data.data.Response === "False"){
+                alert(data.data.Error);
+                $state.go("main.home")
+              }
             });
             return defer.promise;
           }]

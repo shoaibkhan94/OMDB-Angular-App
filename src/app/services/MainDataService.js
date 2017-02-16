@@ -6,7 +6,7 @@
  * @name UserDataService
  * @author shoaib khan
  * @description
- * Service for User Management API calls
+ * Service for API calls
  */
 (function() {
 
@@ -14,35 +14,41 @@
     .module('omdb')
     .service('MainDataService', MainDataService);
 
-  MainDataService.$inject = ["$q", "$timeout", "$state", "$rootScope", "$stateParams", "HTTPFactory"];
+  MainDataService.$inject = ["HTTPFactory"];
 
 
-  function MainDataService($q, $timeout, $state, $rootScope, $stateParams, HTTPFactory) {
+  function MainDataService(HTTPFactory) {
     var _self = this;
 
     /**
      * @ngdoc function
-     * @name Registration Function
-     * @param {object} Registration Object
+     * @name Search Function
+     * @param {String} Search String
      * @description
-     * Registration Function
+     * Function to search Movies
      *
      */
-    _self.register = function(data){
-
+    _self.search = function(data){
       return HTTPFactory.call({
         url : "s=\'"+data+"\'"+"&type=movie",
         method : "GET"
       })
     };
 
+    /**
+     * @ngdoc function
+     * @name movieById Function
+     * @param {String} ImdbId
+     * @description
+     * Function to Get Movie Info By ImdbId
+     *
+     */
     _self.movieById = function (data) {
       return HTTPFactory.call({
         url : "i="+data+"&type=movie&plot=full",
         method : "GET"
       })
     };
-
   }
 
 }());

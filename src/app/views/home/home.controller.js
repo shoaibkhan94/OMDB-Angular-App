@@ -8,28 +8,20 @@
  * @description
  * Controller for omdb
  */
-(function() {
+(function () {
 
   angular
     .module('omdb')
     .controller('HomeCtrl', HomeCtrl);
-  HomeCtrl.$inject = ["$rootScope", "$state", "MainService"]
+  HomeCtrl.$inject = ["$rootScope", "$state"]
 
-  function HomeCtrl($rootScope, $state, MainService) {
+  function HomeCtrl($rootScope, $state) {
     var vm = this;
     vm.search = "";
     vm.response = null;
     vm.loader = false;
     vm.searchMovies = function () {
-      console.log("test",vm.search);
-      $state.go("main.results",{search : vm.search});
-      console.log("not here");
-      /*MainService.searchMovies(vm.search, function success(response) {
-       console.log(response);
-       vm.response = response;
-       }, function error(response) {
-       console.log(response);
-       });*/
+      $state.go("main.results", {search: vm.search});
     }
     $rootScope.$on('$stateChangeStart', stateChangeStart); // Listen for state change
 
