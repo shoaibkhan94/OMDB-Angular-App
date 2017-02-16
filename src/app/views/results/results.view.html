@@ -14,6 +14,13 @@
       <br>
     </li>
   </ul>
+  <div style="text-align: center">
+    <ul class="pagination">
+      <li ng-class="{'active' : page == current_page}" ng-repeat="page in ResultsCtrl.range(ResultsCtrl.pages)">
+        <a ng-click="ResultsCtrl.otherPages(page)">{{page}}</a>
+      </li>
+    </ul>
+  </div>
 </div>
 <div class="container" ng-if="ResultsCtrl.loader">
   <div class="row">

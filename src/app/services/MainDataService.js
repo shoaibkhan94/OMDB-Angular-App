@@ -37,6 +37,21 @@
 
     /**
      * @ngdoc function
+     * @name Search Function
+     * @param {String} Search String and Page no
+     * @description
+     * Function to get search results by page no.
+     *
+     */
+    _self.otherPages = function(search, page){
+      return HTTPFactory.call({
+        url : "s=\'"+search+"\'"+"&type=movie&page="+page,
+        method : "GET"
+      })
+    };
+
+    /**
+     * @ngdoc function
      * @name movieById Function
      * @param {String} ImdbId
      * @description
