@@ -11,7 +11,7 @@
           templateUrl : 'app/views/about/about.view.html',
           controller  : 'AboutCtrl',
           controllerAs: 'AboutCtrl',
-          title       : 'about'
+          title       : 'About OMDB'
         });
     });
 

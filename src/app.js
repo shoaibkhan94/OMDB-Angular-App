@@ -18,6 +18,6 @@ angular
 
     $urlRouterProvider.otherwise('/'); // redirect to root if state is not found
   })
-.config(['$qProvider', function ($qProvider) {
-  $qProvider.errorOnUnhandledRejections(false);
-}]);
+  .config(['$qProvider', function ($qProvider) {
+    $qProvider.errorOnUnhandledRejections(false);
+  }]);

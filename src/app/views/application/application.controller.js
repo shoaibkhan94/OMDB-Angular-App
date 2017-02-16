@@ -24,8 +24,6 @@
     /**
      * @name stateChangeSuccess
      *
-     * @memberof AppCtrl
-     *
      * @param {Object} event - the event object
      * @param {Object} newState - the new state object
      */

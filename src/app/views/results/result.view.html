@@ -1,16 +1,17 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-4 col-md-offset-4" >
+    <div class="col-md-4 col-md-offset-4">
       <div class="row">
-      <img class="overlay" ng-click="ResultCtrl.gotoResults()" data-toggle="tooltip" data-placement="top" title="Back to Search Results" src="../../../assets/back-arrow.png"/>
-      <img class="overlayer" src="{{img}}" alt="No Poster Found"
-           onerror="this.src='../../assets/img_placeholder.gif';this.class='overlayer'">
-    </div>
-    <div class="row white-center">
-      <p>{{ResultCtrl.result.Title}}</p>
-      <p style="font-size: large">Release Year : {{ResultCtrl.result.Year}}</p>
-    </div>
-      <div class="row white-center" >
+        <img class="overlay" ng-click="ResultCtrl.gotoResults()" data-toggle="tooltip" data-placement="top"
+             title="Back to Search Results" src="../../../assets/back-arrow.png"/>
+        <img class="overlayer" src="{{img}}" alt="No Poster Found"
+             onerror="this.src='../../assets/img_placeholder.gif';this.class='overlayer'">
+      </div>
+      <div class="row white-center">
+        <p>{{ResultCtrl.result.Title}}</p>
+        <p style="font-size: large">Release Year : {{ResultCtrl.result.Year}}</p>
+      </div>
+      <div class="row white-center">
         <p>{{ResultCtrl.result.Plot}}</p>
       </div>
     </div>

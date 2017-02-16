@@ -11,7 +11,7 @@
  * @description
  * Controller for Showing search results
  */
-(function() {
+(function () {
 
   angular
     .module('omdb')
